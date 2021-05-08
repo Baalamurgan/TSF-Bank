@@ -1,7 +1,5 @@
 <!DOCTYPE html>
-/** 
-*TODO: Home page not aligned
-*/ 
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,12 +9,12 @@
     <link rel="stylesheet" href="./css/navbarr.css" type="text/css">
     <link rel="stylesheet" href="./css/styleee.css" type="text/css">
     <style type="text/css">
-        a {
+        #show {
             color: black;
             transition: 1.0s;
         }
 
-        a:hover {
+        #show:hover {
             color: black;
             text-decoration: none;
         }
@@ -29,7 +27,7 @@
     include 'navbar.php';
     ?>
     <br>
-    <div id="homebtn"><a href="index.php"><button class="home">HOME</button></a></div><br>
+    <div id="homebtn"><a href="index.php"><button class="home">HOME</button></a></div>
     <h1 style="text-align:center;color:blue;">CUSTOMERS</h1>
     <div class="row" style="width: 100%;">
         <div class="column" style="width: 100%;">

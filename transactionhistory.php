@@ -1,19 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
-/** 
-*TODO: date not ordered
-*/ 
+
 <head>
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Transaction History</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
     <link rel="stylesheet" href="./css/tablee.css" type="text/css">
     <link rel="stylesheet" href="./css/navbarr.css" type="text/css">
     <link rel="stylesheet" href="./css/styleee.css" type="text/css">
-    <title>Transaction History</title>
     <style type="text/css">
-        #home{
+        #home {
             background-color: pink;
             color: black;
             transition: 0.5s;
@@ -23,7 +21,7 @@
             text-align: center;
         }
 
-        #home:hover{
+        #home:hover {
             background-color: black;
             color: red;
         }
@@ -55,7 +53,7 @@
                 <tbody>
                     <?php
                     include 'config.php';
-                    $sql = "SELECT * FROM 'transaction' ORDER BY dt";
+                    $sql = "SELECT * FROM transaction ORDER BY dt DESC";
                     $query = mysqli_query($conn, $sql);
                     $i = 0;
                     while ($rows = mysqli_fetch_assoc($query)) {
