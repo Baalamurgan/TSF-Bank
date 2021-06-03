@@ -1,3 +1,9 @@
+<?php
+session_start();
+if (!isset($_SESSION['username'])) {
+    header('location:login.php');
+}
+?>
 <!DOCTYPE html>
 
 <head>
@@ -40,6 +46,7 @@
                     </tr>
                 </thead>
                 <?php
+                $to = $_GET["phno"];
                 $sql = "SELECT name,email,number,balance FROM customers ORDER BY name";
                 $result = $conn->query($sql);
                 $i = 0;
@@ -51,7 +58,10 @@
                         $e = $row["email"];
                         $n = $row["number"];
                         $b = $row["balance"];
-                        echo "<tr><th>" . $i . "</th><td>" . $row["name"] . "</td><td><a id=\"show\" href=\"transfermoney.php?phno=$row[number]\"><button>View</button></a></td></tr>";
+                        if ($n == $to) {
+                            echo "<tr style=\"background-color:green\";><th>" . $i . "</th><td>" . $row["name"] . "</td><td><a id=\"show\" href=\"transfermoney.php?phno=$row[number]\"><button>View</button></a></td></tr>";
+                        } else
+                            echo "<tr><th>" . $i . "</th><td>" . $row["name"] . "</td><td><a id=\"show\" href=\"transfermoney.php?phno=$row[number]\"><button>View</button></a></td></tr>";
                     }
                     echo '';
                 } else {
@@ -61,37 +71,6 @@
                 </tbody>
             </table>
         </div>
-        <!-- <div class="column">
-                    <table id="second">
-                        <thead>
-                            <tr>
-                                <th scope="col">E-mail:</th>
-                                <td id="email">
-                                </td>
-                            </tr>
-                            <tr>
-                                <th scope="col">Phone number:</th>
-                                <td id="number">
-                                </td>
-                            </tr>
-                            <tr>
-                                <th scope="col">Balance:</th>
-                                <td id="balance">
-                                </td>
-                            </tr>
-                        </thead>
-                    </table>
-                </div>
-                <div class="column">
-                    <table id="third">
-                        <thead>
-                            <tr>
-                                <th>Want to </th>
-                                <td><a href="selecteduserdetail.php?phno=$row[number]"><button type="button" id="tr">Transfer</button></a></td>
-                            </tr>
-                        </thead>
-                    </table>
-                </div> -->
     </div>
     <script>
         function expand(e, n, b) {

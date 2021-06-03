@@ -1,3 +1,9 @@
+<?php
+session_start();
+if (!isset($_SESSION['username'])) {
+    header('location:login.php');
+}
+?>
 <!DOCTYPE html>
 
 <head>
@@ -13,7 +19,7 @@
         a {
             background-color: black;
             color: yellowgreen;
-            transition: 0.5s;        
+            transition: 0.5s;
         }
 
         #back {
@@ -80,10 +86,10 @@
             </table>
         </div>
     </div>
-    <div id="back"><a href="userslist.php"><button class="back">BACK</button></a></div>
-        <footer class="text-center mt-5 py-2">
-            <p>&copy 2021. Made by <b>Baalamurgan K A</b><br>GRIP TheSparksFoundation.</p>
-        </footer>
+    <div id="back"><a href="userslist.php?phno="><button class="back">BACK</button></a></div>
+    <footer class="text-center mt-5 py-2">
+        <p>&copy 2021. Made by <b>Baalamurgan K A</b><br>GRIP TheSparksFoundation.</p>
+    </footer>
 </body>
 
 </html>

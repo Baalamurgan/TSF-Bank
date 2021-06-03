@@ -1,3 +1,9 @@
+<?php
+session_start();
+if (!isset($_SESSION['username'])) {
+    header('location:login.php');
+}
+?>
 <!DOCTYPE html>
 
 <head>
@@ -8,7 +14,7 @@
     <link rel="stylesheet" href="css/navbarr.css" type="text/css">
     <title>Basic Banking System</title>
     <style>
-        button:hover{
+        button:hover {
             transition: 0.5s;
             font-size: 20px;
         }
@@ -16,16 +22,13 @@
 </head>
 
 <body>
-
     <?php
     include 'navbar.php';
     ?>
-
     <div class="container-fluid" style="background-color: black;">
         <div class="row py-1">
             <div class="col-sm-12 col-md">
                 <div class="text-center">
-                    <br>
                     <h1>Welcome to</h1>
                     <h1>TSF Bank</h1>
                 </div>
@@ -33,11 +36,15 @@
 
             <div class="row activity text-center">
                 <div class="col-md act">
-                    <br><img src="img/users.png" alt="userimg" class="img-fluid">
+                    <br><img src="img/newuser.png" alt="newuserimg" class="img-fluid">
                     <br>
-                    <a href="userslist.php"><br><button>View all customers</button></a><br><br>
+                    <a href="create.php"><br><button>New customer</button></a><br><br>
                 </div>
-
+                <div class="col-md act">
+                    <br><img src="img/users.png" alt="usersimg" class="img-fluid">
+                    <br>
+                    <a href="userslist.php?phno="><br><button>View all customers</button></a>
+                </div>
                 <div class="col-md act">
                     <img src="img/transaction.jpg" alt="transferimg" class="img-fluid">
                     <br>
@@ -47,10 +54,9 @@
 
         </div>
     </div>
-    <br>
-        <footer class="text-center mt-5 py-2">
-            <p>&copy 2021. Made by <b>Baalamurgan K A</b><br>GRIP TheSparksFoundation.</p>
-        </footer>
+    <footer class="text-center mt-5 py-2">
+        <p>&copy 2021. Made by <b>Baalamurgan K A</b><br>GRIP TheSparksFoundation.</p>
+    </footer>
 
 </body>
 

@@ -7,8 +7,11 @@
 
     <div class="collapse navbar-collapse" id="collapsibleNavbar">
         <ul class="navbar-nav ml-auto">
-            <li class="nav-item">
+        <li class="nav-item">
                 <a href="index.php" class="nav-link" style="color: white ;"><b>Home</b></a>
+            </li>
+            <li class="nav-item">
+                <a href="logout.php" class="nav-link" style="color: white ;"><b><i class="logout"></i>Logout</b></a>
             </li>
 
 
